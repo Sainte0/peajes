@@ -1,6 +1,10 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
 const peajeSchema = new mongoose.Schema({
+  patente: {
+    type: String,
+    required: true,
+  },
   ubicacion: {
     type: String,
     required: true,
@@ -9,12 +13,16 @@ const peajeSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  vehiculos: {
-    type: Number,
+  tipo_vehiculo: {
+    type: String,
     required: true,
   },
-});
+  fecha_creacion: {
+    type: Date,
+    default: Date.now,
+  },
+})
 
-const Peaje = mongoose.model('Peaje', peajeSchema);
+const Peaje = mongoose.model('Peaje', peajeSchema)
 
-module.exports = Peaje;
+module.exports = Peaje

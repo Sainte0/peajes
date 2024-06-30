@@ -1,24 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Listado de Peajes</title>
-</head>
-<body>
-  <h1>Listado de Peajes</h1>
-  <ul>
-    <% peajes.forEach(peaje => { %>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Listado de Peajes</title>
+  </head>
+  <body>
+    <h1>Listado de Peajes</h1>
+    <ul>
+      <% peajes.forEach(peaje => { %>
       <li>
-        <strong>Ubicación:</strong> <%= peaje.ubicacion %><br>
-        <strong>Tarifa:</strong> <%= peaje.tarifa %><br>
-        <strong>Vehículos:</strong> <%= peaje.vehiculos %><br>
+        <strong>Patente:</strong> <%= peaje.patente %><br />
+        <strong>Ubicación:</strong> <%= peaje.ubicacion %><br />
+        <strong>Tarifa:</strong> <%= peaje.tarifa %><br />
+        <strong>Tipo vehiculo:</strong> <%= peaje.tipo_vehiculo %><br />
+        <form
+          action="/peajes/editar/<%= peaje._id %>"
+          method="GET"
+          style="display: inline"
+        >
+          <button type="submit">Editar</button>
+        </form>
         <form action="/peajes/eliminar/<%= peaje._id %>" method="POST">
           <button type="submit">Eliminar</button>
         </form>
       </li>
-    <% }); %>
-  </ul>
-  <a href="/peajes/agregar">Agregar Peaje</a>
-</body>
+      <% }); %>
+    </ul>
+    <a href="/peajes/agregar">Agregar Peaje</a>
+  </body>
 </html>

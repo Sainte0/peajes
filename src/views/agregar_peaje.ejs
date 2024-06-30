@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Agregar Peaje</title>
-</head>
-<body>
-  <h1>Agregar Peaje</h1>
-  <form action="/peajes/agregar" method="POST">
-    <label for="ubicacion">Ubicación:</label>
-    <input type="text" id="ubicacion" name="ubicacion" required><br><br>
-    <label for="tarifa">Tarifa:</label>
-    <input type="number" id="tarifa" name="tarifa" required><br><br>
-    <label for="vehiculos">Cantidad de Vehículos:</label>
-    <input type="number" id="vehiculos" name="vehiculos" required><br><br>
-    <button type="submit">Agregar Peaje</button>
-  </form>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agregar Peaje</title>
+  </head>
+  <body>
+    <h1>Agregar Peaje</h1>
+    <form action="/peajes/agregar" method="POST">
+      <label for="patente">Patente:</label>
+      <input type="text" id="patente" name="patente" required /><br /><br />
+      <label for="ubicacion">Ubicación:</label>
+      <input type="text" id="ubicacion" name="ubicacion" required /><br /><br />
+      <label for="tarifa">Tarifa:</label>
+      <input type="number" id="tarifa" name="tarifa" required /><br /><br />
+      <label for="tipo_vehiculo">Tipo de Vehiculo:</label>
+      <input
+        type="text"
+        id="tipo_vehiculo"
+        name="tipo_vehiculo"
+        required
+      /><br /><br />
+      <button type="submit">Agregar Peaje</button>
+    </form>
+  </body>
 </html>

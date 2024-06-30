@@ -1,34 +1,34 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const peajeRoutes = require('./routes/peajeRoutes');
-const path = require('path');
+const express = require('express')
+const mongoose = require('mongoose')
+const bodyParser = require('body-parser')
+const peajeRoutes = require('./routes/peajeRoutes')
+const path = require('path')
 
-const app = express();
-const port = 3000;
+const app = express()
+const port = 3000
 
 // Middleware
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views')); // Asegúrate de que Express encuentre el directorio de vistas
+app.set('view engine', 'ejs')
+app.set('views', path.join(__dirname, 'views'))
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('public'));
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(express.static('public'))
 
 // Conexión a MongoDB
-mongoose.connect('mongodb+srv://sainte:sainte1234@bd2.kg7kjxl.mongodb.net/')
+mongoose
+  .connect('mongodb+srv://sainte:sainte1234@bd2.kg7kjxl.mongodb.net/')
   .then(() => console.log('Conectado a MongoDB'))
-  .catch(err => console.error('Error al conectar a MongoDB', err));
+  .catch((err) => console.error('Error al conectar a MongoDB', err))
 
 // Rutas
-app.use('/peajes', peajeRoutes);
+app.use('/peajes', peajeRoutes)
 
 // Ruta principal
 app.get('/', (req, res) => {
-  res.render('index'); // Renderiza index.ejs
-});
+  res.render('index')
+})
 
 // Iniciar servidor
 app.listen(port, () => {
-  console.log(`Servidor corriendo en http://localhost:${port}`);
-});
-
+  console.log(`Servidor corriendo en http://localhost:${port}`)
+})
