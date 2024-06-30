@@ -54,19 +54,7 @@ router.get('/', async (req, res) => {
   }
 })
 
-// Endpoint eliminar peaje por ID
-router.post('/eliminar/:id', async (req, res) => {
-  const { id } = req.params
-  try {
-    await Peaje.findByIdAndDelete(id)
-    res.redirect('/peajes')
-  } catch (err) {
-    res.status(500).send(err)
-  }
-})
-
 // Ruta el formulario de edición de un peaje
-
 router.post('/editar/:id', async (req, res) => {
   const { id } = req.params
   const { patente, ubicacion, tarifa, tipo_vehiculo } = req.body
@@ -81,6 +69,17 @@ router.post('/editar/:id', async (req, res) => {
     res.redirect('/peajes')
   } catch (err) {
     res.status(400).send('Error al actualizar el peaje')
+  }
+})
+
+// Endpoint eliminar peaje por ID
+router.post('/eliminar/:id', async (req, res) => {
+  const { id } = req.params
+  try {
+    await Peaje.findByIdAndDelete(id)
+    res.redirect('/peajes')
+  } catch (err) {
+    res.status(500).send(err)
   }
 })
 
